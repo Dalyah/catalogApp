@@ -4,7 +4,8 @@ from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 from flask import Flask, jsonify, request, url_for, abort, g
 
-engine = create_engine('sqlite:///catalog.db')
+# engine = create_engine('sqlite:///catalog.db')
+engine = create_engine('postgresql://catalog:myPassword@localhost/catalog')
 
 # clear DB
 Base.metadata.drop_all(engine)

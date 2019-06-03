@@ -18,15 +18,19 @@ from flask import session as session
 auth = HTTPBasicAuth()
 
 
-engine = create_engine('sqlite:///catalog.db',
-                       connect_args={'check_same_thread': False})
+# engine = create_engine('sqlite:///catalog.db',
+#                        connect_args={'check_same_thread': False})
+engine = create_engine('postgresql://catalog:myPassword@localhost/catalog')
+
 
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 db_session = DBSession()
 app = Flask(__name__)
-CLIENT_ID = json.loads(open(
-                 'client_secrets.json', 'r').read())['web']['client_id']
+# CLIENT_ID = json.loads(open(
+#                  'client_secrets.json', 'r').read())['web']['client_id']
+CLIENT_ID = json.loads(open('/var/www/catalogApp/catalogApp/client_secrets.json', 'r').read())['web']['client_id']
+
 
 
 @auth.verify_password
@@ -323,7 +327,9 @@ def gdisconnect():
 
 if __name__ == '__main__':
     app.debug = True
+    app.secret_key = 'udacity'
     app.config['SECRET_KEY'] = ''.join(random.choice(
                                 string.ascii_uppercase + string.digits)
                                 for x in range(32))
-    app.run(host='0.0.0.0', port=5000)
+    # app.run(host='0.0.0.0', port=5000)
+    app.run()

@@ -1,3 +1,4 @@
+This project is a special version of Catalog-Project with some changes ready to be deployed on Amazon Linux Server Lightsail!
 # Item Catalog Application
 It is a catalog application to retrieve, add, update and delete items from
 different categories. This project was prepared as part of Udacity Full-Stack Nanodegree program.
