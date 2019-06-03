@@ -54,7 +54,7 @@ def addItem(id, title, des, cat_id):
 
 
 if __name__ == '__main__':
-    addUser('Admin', '123')
+    #addUser('Admin', '123') commeted for testing only
     addCategory(1, 'Hobbies')
     addItem(1, 'Reading', 'Reading is helpful to gain knowledge and relax', 1)
     addItem(2, 'Shopping', 'Some people feel great while shopping', 1)
